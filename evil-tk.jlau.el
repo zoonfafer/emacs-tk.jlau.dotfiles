@@ -2,25 +2,28 @@
 ;; Author: Jeffrey Lau <emacs@NOSPAMjlau.tk>
 ;;
 
-;; TODO: explicitly require stuff from `init.el'? --- make them a package?
-
+;;;###autoload
 (evil-define-command edit-init-el ()
   "Switch to `init.el' for editing."
   :repeat nil
   (interactive)
   ;(find-file (expand-file-name "init.el" "~/.emacs.d")))
   (v))
+;;;###autoload
 (evil-ex-define-cmd "ee" 'edit-init-el) ;; :ee
 
+;;;###autoload
 (evil-define-command edit-custom-evil-stuff ()
   "Switch to `evil-tk.jlau.el' for editing."
   :repeat nil
   (interactive)
   ;(find-file (expand-file-name "evil-tk.jlau.el" "~/.emacs.d")))
   (find-file (e "evil-tk.jlau.el")))
+;;;###autoload
 (evil-ex-define-cmd "ec" 'edit-custom-evil-stuff) ;; :ec
 
 ;; map :bs to switch to the scratch buffer
+;;;###autoload
 (evil-define-command switch-to-scratch ()
   "Switch to the *scratch* buffer."
   :repeat nil
@@ -29,24 +32,33 @@
 (evil-ex-define-cmd "bs" 'switch-to-scratch) ;; :bs
 
 ;; bring back ^wq
+;;;###autoload
 (define-key evil-window-map "q" 'delete-window)
 
 ;; TODO: :b#?  ^6?
 ;; @url http://www.emacswiki.org/emacs/SwitchingBuffers
+;;;###autoload
 (defun switch-to-previous-buffer ()
   (interactive)
   (switch-to-buffer (other-buffer (current-buffer) 1)))
 
+;;;###autoload
 (evil-ex-define-cmd "bb" 'switch-to-previous-buffer) ;; :bb
 
+;;;###autoload
 (define-key evil-normal-state-map "\C-^" 'switch-to-previous-buffer) ;; no \C-6 ... :(
 
 ;; bring back ZZ & ZQ
+;
+;;;###autoload
 (define-key evil-normal-state-map "ZZ" ":x")
+
+;;;###autoload
 (define-key evil-normal-state-map "ZQ" ":q!")
 
 ;; bring back i_CTRL-H
 ;; @url https://github.com/cofi/dotfiles/blob/master/emacs.d/cofi-evil.el
+;;;###autoload
 (define-key evil-insert-state-map "\C-h" 'backward-delete-char)
 
 ;; delete parts of snake_case or camelCase words.
@@ -64,7 +76,11 @@
 
 ;; simulate command-T & stuff (using iswitchb & icicles...)
 ;(define-key evil-normal-state-map "\M-t" 'iswitchb-buffer)
+;
+;;;###autoload
 (define-key evil-normal-state-map ",.b" 'iswitchb-buffer) ;; TODO: define using <leader>?
+
+;;;###autoload
 (define-key evil-normal-state-map ",.f" 'icicle-file) ;; TODO: define using <leader>?
 
 ;; TODO: jump to default org mode file!
@@ -74,6 +90,7 @@
 ;; @url https://github.com/cofi/dotfiles/blob/master/emacs.d/cofi-evil.el
 ;; @url http://stackoverflow.com/questions/8483182/emacs-evil-mode-best-practice
 ;;
+;;;###autoload
 (evil-declare-key 'normal org-mode-map
   (kbd "RET") 'org-open-at-point
   "za" 'org-cycle
@@ -87,6 +104,7 @@
   )
 
 ;; Remap org-mode meta keys for convenience
+;;;###autoload
 (mapcar (lambda (state)
 	  (evil-declare-key state org-mode-map
 	    (kbd "C-t") 'org-todo
@@ -99,3 +117,5 @@
 	    (kbd "M-K") 'org-shiftmetaup
 	    (kbd "M-J") 'org-shiftmetadown))
 	'(normal insert))
+
+(provide 'evil-tk.jlau)

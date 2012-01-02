@@ -77,11 +77,9 @@
 	flymake-jslint
 	yasnippet
 	js-tk.jlau
+	evil-tk.jlau ;; load custom evil bindings
 	)
       )
-
-;; load custom evil bindings
-(load (e "evil-tk.jlau.el"))
 
 ;; switch things on
 (global-surround-mode 1)
