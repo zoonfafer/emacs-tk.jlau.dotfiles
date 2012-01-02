@@ -47,18 +47,21 @@
 ;;; packages in your .emacs.
 (when
     (load
-     (e "elpa/package.el"))
+     (e "bundles/elpa/package.el"))
   (package-initialize))
 
 
 ;; load mah bundles!
 ;; @url http://stackoverflow.com/questions/221365/emacs-lisp-how-to-add-a-folder-and-all-its-first-level-sub-folders-to-the-load
-(let* ((my-lisp-dir eroot)
+(let* ((my-lisp-dir (e "bundles"))
        (default-directory my-lisp-dir)
        (orig-load-path load-path))
   (setq load-path (cons my-lisp-dir nil))
   (normal-top-level-add-subdirs-to-load-path)
   (nconc load-path orig-load-path))
+
+;; Hmm...
+(add-to-list 'load-path (e "."))
 
 ;; require mah bundles!
 (mapc (lambda (a) (require a))
