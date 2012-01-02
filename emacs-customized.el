@@ -10,6 +10,7 @@
  '(ecb-options-version "2.40")
  '(evil-shift-width 2)
  '(evil-want-C-u-scroll t)
+ '(indent-tabs-mode nil)
  '(initial-buffer-choice t)
  '(js2-basic-offset 2)
  '(js2-cleanup-whitespace nil)
