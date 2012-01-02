@@ -47,7 +47,7 @@
 ;;; packages in your .emacs.
 (when
     (load
-     (e "bundles/elpa/package.el"))
+     (e "elpa/package.el"))
   (package-initialize))
 
 ;; marmalade
