@@ -50,6 +50,10 @@
      (e "bundles/elpa/package.el"))
   (package-initialize))
 
+;; marmalade
+;; @URL http://marmalade-repo.org/
+(cat-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+
 
 ;; load mah bundles!
 ;; @url http://stackoverflow.com/questions/221365/emacs-lisp-how-to-add-a-folder-and-all-its-first-level-sub-folders-to-the-load
@@ -134,7 +138,3 @@
 ;; Open .scala file. M-x ensime (once per project)
 ;; ---- (end) Ensime --------------------
 
-
-;; marmalade
-;; @URL http://marmalade-repo.org/
-(cat-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
