@@ -1,5 +1,6 @@
-auto-save-list/
-bundles/
-image-dired/
-tmp/
-ac-comphist.dat
+/auto-save-list/
+/bundles/
+/elpa
+/image-dired/
+/tmp/
+/ac-comphist.dat
