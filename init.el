@@ -76,6 +76,7 @@
 	icicles
 	flymake-jslint
 	yasnippet
+	js-tk.jlau
 	)
       )
 
@@ -91,11 +92,6 @@
 ;; TODO: turn on yas minor mode at all times!
 ;; TODO: turn on evil minor mode at all times! (including ECB)
 
-;; @url http://www.emacswiki.org/emacs/FlymakeJavaScript
-;; @url http://lapin-bleu.net/riviera/?p=191
-(add-hook 'javascript-mode-hook
-	  (lambda () (flymake-mode 1)))
-
 ;; autoload each of these!
 (mapc (lambda (a) (autoload a (symbol-name a) () t))
       '(
@@ -105,11 +101,6 @@
 	js2-mode
 	)
       )
-
-;; === js2 mode
-(cat-to-list 'auto-mode-alist
-	     '("\\.js\\'" . js2-mode)
-	     )
 
 ;; === Mythryl mode
 
