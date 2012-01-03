@@ -88,7 +88,6 @@
 ;; switch things on
 (global-surround-mode 1)
 (evil-mode 1)
-(ido-mode 1)
 ;(icy-mode 1)
 (yas/global-mode 1)
 
