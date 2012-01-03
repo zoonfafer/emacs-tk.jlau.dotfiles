@@ -13,7 +13,7 @@
   ;(find-file (expand-file-name "init.el" "~/.emacs.d")))
   (v))
 ;;;###autoload
-(evil-ex-define-cmd "ee" 'edit-init-el) ;; :ee
+(evil-ex-define-cmd "v" 'edit-init-el) ;; :v
 
 ;;;###autoload
 (evil-define-command edit-custom-evil-stuff ()
@@ -23,7 +23,7 @@
   ;(find-file (expand-file-name "evil-tk.jlau.el" "~/.emacs.d")))
   (find-file (e "evil-tk.jlau.el")))
 ;;;###autoload
-(evil-ex-define-cmd "ec" 'edit-custom-evil-stuff) ;; :ec
+(evil-ex-define-cmd "vc" 'edit-custom-evil-stuff) ;; :vc
 
 ;; map :bs to switch to the scratch buffer
 ;;;###autoload
