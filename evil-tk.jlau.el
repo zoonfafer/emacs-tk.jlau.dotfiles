@@ -4,6 +4,7 @@
 
 ;; DO WANT lexical-let pl0x
 (eval-when-compile (require 'cl))
+(eval-when-compile (require 'evil-numbers))
 
 ;;;###autoload
 (evil-define-command edit-init-el ()
