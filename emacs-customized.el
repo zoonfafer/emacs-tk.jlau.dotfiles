@@ -12,7 +12,7 @@
  '(evil-want-C-u-scroll t)
  '(ido-enable-flex-matching t)
  '(ido-enable-regexp t)
- '(ido-mode (quote both) nil (ido))
+ '(ido-mode nil nil (ido))
  '(indent-tabs-mode nil)
  '(initial-buffer-choice t)
  '(js2-basic-offset 2)
