@@ -64,6 +64,12 @@
 ;;;###autoload
 (define-key evil-insert-state-map "\C-h" 'backward-delete-char)
 
+;; evil numbers: bring back ^a & ^x
+;;;###autoload
+(define-key evil-normal-state-map (kbd "C-a") 'evil-numbers/inc-at-pt)
+(define-key evil-normal-state-map (kbd "C-x") 'evil-numbers/dec-at-pt)
+
+
 ;; delete parts of snake_case or camelCase words.
 ;; TODO: refine it!
 ;; @url https://slashusr.wordpress.com/2011/09/15/heretical-confessions-of-an-emacs-addict-joy-of-the-vim-text-editor/
