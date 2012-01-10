@@ -19,6 +19,7 @@
  '(js2-cleanup-whitespace nil)
  '(js2-enter-indents-newline t)
  '(js2-indent-on-enter-key t)
+ '(require-final-newline t)
  '(show-paren-mode t)
  '(show-trailing-whitespace t)
  '(x-stretch-cursor t))
