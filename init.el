@@ -91,6 +91,19 @@
 (icy-mode 1)
 (yas/global-mode 1)
 
+;; more convenient yes-no prompt
+;; @URL: http://www.emacswiki.org/emacs/YesOrNoP
+(defun my-yes-or-mumble-p (prompt)
+  "PROMPT user with a yes-or-no question, but only test for yes."
+  (if (string= "y"
+               (downcase
+                (read-from-minibuffer
+                 (concat prompt "(y or no) "))))
+      t
+    nil))
+
+(defalias 'yes-or-no-p 'my-yes-or-mumble-p)
+
 ;; TODO: turn on yas minor mode at all times!
 ;; TODO: turn on evil minor mode at all times! (including ECB)
 
