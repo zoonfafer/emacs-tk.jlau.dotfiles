@@ -113,6 +113,7 @@
       '(
 	mythryl-mode
 	scala-mode
+	haskell-mode
 	ensime
 	js2-mode
 	)
@@ -123,6 +124,18 @@
 	     '("\\.org\\'" . org-mode)
 	     '("\\org\\'"  . org-mode)
 	     )
+
+;; === Haskell mode
+(cat-to-list 'auto-mode-alist
+	     '("\\.hs\\'" . haskell-mode)
+	     )
+
+;; @URL: http://www.haskell.org/haskellwiki/Haskell_mode_for_Emacs
+;;
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+;;(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
 
 ;; === Mythryl mode
 
