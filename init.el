@@ -23,8 +23,8 @@
 (setq custom-file
       (e
        (if (featurep 'xemacs)
-	   "x"
-	 "")
+           "x"
+         "")
        "emacs-customized.el"))
 (load custom-file t)
 
@@ -70,19 +70,19 @@
 ;; require mah bundles!
 (mapc (lambda (a) (require a))
       '(
-	deferred ;; required by `emacs-bundle'
-	package  ;; required by `emacs-bundle'
-	ecb
-	evil
-	evil-numbers
-	evil-leader
-	surround
-	icicles
-	flymake-jslint
-	yasnippet
-	js-tk.jlau
-	evil-tk.jlau ;; load custom evil bindings
-	)
+        deferred ;; required by `emacs-bundle'
+        package  ;; required by `emacs-bundle'
+        ecb
+        evil
+        evil-numbers
+        evil-leader
+        surround
+        icicles
+        flymake-jslint
+        yasnippet
+        js-tk.jlau
+        evil-tk.jlau ;; load custom evil bindings
+        )
       )
 
 ;; switch things on
@@ -111,12 +111,12 @@
 ;; autoload each of these!
 (mapc (lambda (a) (autoload a (symbol-name a) () t))
       '(
-	mythryl-mode
-	scala-mode
-	haskell-mode
-	ensime
-	js2-mode
-	)
+        mythryl-mode
+        scala-mode
+        haskell-mode
+        ensime
+        js2-mode
+        )
       )
 
 ;; === org mode
@@ -142,15 +142,15 @@
 ;(require 'mythryl-mode)
 ;; for .pkg and .api files
 (cat-to-list 'auto-mode-alist
-	     '("\\.pkg\\'" . mythryl-mode)
-	     '("\\.api\\'" . mythryl-mode)
-	     )
+             '("\\.pkg\\'" . mythryl-mode)
+             '("\\.api\\'" . mythryl-mode)
+             )
 
 ;; for scripts starting with #!/.../mythryl
 ;; (add-to-list 'interpreter-mode-alist
 (cat-to-list 'interpreter-mode-alist
-	     '("mythryl" . mythryl-mode)
-	     )
+             '("mythryl" . mythryl-mode)
+             )
 
 ;; === Scala mode
 ;(require 'scala-mode)
