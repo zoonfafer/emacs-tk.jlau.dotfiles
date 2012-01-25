@@ -72,12 +72,13 @@
       '(
         deferred ;; required by `emacs-bundle'
         package  ;; required by `emacs-bundle'
+        ido
         ecb
         evil
         evil-numbers
         evil-leader
         surround
-        icicles
+        ;;icicles
         flymake-jslint
         yasnippet
         js-tk.jlau
@@ -88,7 +89,7 @@
 ;; switch things on
 (global-surround-mode 1)
 (evil-mode 1)
-(icy-mode 1)
+;;(icy-mode 1) ;; icicles
 (yas/global-mode 1)
 (ecb-activate)
 
