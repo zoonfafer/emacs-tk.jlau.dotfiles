@@ -123,7 +123,7 @@
 ;; === org mode
 (cat-to-list 'auto-mode-alist
 	     '("\\.org\\'" . org-mode)
-	     '("\\org\\'"  . org-mode)
+	     '("/org\\'"  . org-mode)
 	     )
 
 ;; === Haskell mode
