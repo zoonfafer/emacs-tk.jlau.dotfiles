@@ -72,7 +72,7 @@
       '(
         deferred ;; required by `emacs-bundle'
         package  ;; required by `emacs-bundle'
-        ido
+        ;;ido
         ecb
         evil
         evil-numbers
