@@ -114,21 +114,20 @@
   )
 
 ;; Remap org-mode meta keys for convenience
-;;;###autoload
+;; Yeah... need to use backticks for evil's `evil-delay'...
+;;###autoload
 (mapc (lambda (state)
-         (lexical-let ((state state))
-           (evil-declare-key state org-mode-map
-             (kbd "C-t") 'org-todo
-             (kbd "M-l") 'org-metaright
-             (kbd "M-h") 'org-metaleft
-             (kbd "M-k") 'org-metaup
-             (kbd "M-j") 'org-metadown
-             (kbd "M-L") 'org-shiftmetaright
-             (kbd "M-H") 'org-shiftmetaleft
-             (kbd "M-K") 'org-shiftmetaup
-             (kbd "M-J") 'org-shiftmetadown)
-           )
-         )
-      '(normal insert))
+          (eval `(evil-declare-key ',state org-mode-map
+                   (kbd "C-t") 'org-todo
+                   (kbd "M-l") 'org-metaright
+                   (kbd "M-h") 'org-metaleft
+                   (kbd "M-k") 'org-metaup
+                   (kbd "M-j") 'org-metadown
+                   (kbd "M-L") 'org-shiftmetaright
+                   (kbd "M-H") 'org-shiftmetaleft
+                   (kbd "M-K") 'org-shiftmetaup
+                   (kbd "M-J") 'org-shiftmetadown)
+                ))
+        '(normal insert))
 
 (provide 'evil-tk.jlau)
