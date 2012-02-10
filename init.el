@@ -91,7 +91,7 @@
 (evil-mode 1)
 ;;(icy-mode 1) ;; icicles
 (yas/global-mode 1)
-(ecb-activate)
+;;(ecb-activate)
 
 ;; more convenient yes-no prompt
 ;; @URL: http://www.emacswiki.org/emacs/YesOrNoP
