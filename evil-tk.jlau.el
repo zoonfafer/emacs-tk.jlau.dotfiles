@@ -81,6 +81,9 @@
 ;;;###autoload
 (define-key evil-normal-state-map "ZQ" ":q!")
 
+;;;###autoload
+(define-key evil-normal-state-map "Zq" ":qa!")
+
 ;; bring back i_CTRL-H
 ;; @url https://github.com/cofi/dotfiles/blob/master/emacs.d/cofi-evil.el
 ;;;###autoload
