@@ -6,6 +6,7 @@
 (eval-when-compile (require 'cl))
 (eval-when-compile (require 'evil-numbers))
 
+;; TODO: DRY these up
 ;;;###autoload
 (evil-define-command edit-init-el ()
   "Switch to `init.el' for editing."
@@ -24,7 +25,27 @@
   ;(find-file (expand-file-name "evil-tk.jlau.el" "~/.emacs.d")))
   (find-file (e "evil-tk.jlau.el")))
 ;;;###autoload
-(evil-ex-define-cmd "vc" 'edit-custom-evil-stuff) ;; :vc
+(evil-ex-define-cmd "ve" 'edit-custom-evil-stuff) ;; :ve
+
+;;;###autoload
+(evil-define-command edit-home-org ()
+  "Edit `~/org'."
+  :repeat nil
+  (interactive)
+  (find-file (expand-file-name "org" "~")))
+  ;(find-file (e "evil-tk.jlau.el")))
+;;;###autoload
+(evil-ex-define-cmd "vo" 'edit-home-org) ;; :vo
+
+;;;###autoload
+(evil-define-command edit-custom-file ()
+  "Edit custom file."
+  :repeat nil
+  (interactive)
+  (find-file (custom-file)))
+;;;###autoload
+(evil-ex-define-cmd "vc" 'edit-custom-file) ;; :vc
+
 
 ;; map :bs to switch to the scratch buffer
 ;;;###autoload
