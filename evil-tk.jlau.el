@@ -6,45 +6,35 @@
 (eval-when-compile (require 'cl))
 (eval-when-compile (require 'evil-numbers))
 
-;; TODO: DRY these up
+; custom ex commands, all DRY-ed up!
 ;;;###autoload
-(evil-define-command edit-init-el ()
-  "Switch to `init.el' for editing."
-  :repeat nil
-  (interactive)
-  ;(find-file (expand-file-name "init.el" "~/.emacs.d")))
-  (v))
-
-;;;###autoload
-(evil-define-command edit-custom-evil-stuff ()
-  "Switch to `evil-tk.jlau.el' for editing."
-  :repeat nil
-  (interactive)
-  ;(find-file (expand-file-name "evil-tk.jlau.el" "~/.emacs.d")))
-  (find-file (e "evil-tk.jlau.el")))
-
-;;;###autoload
-(evil-define-command edit-home-org ()
-  "Edit `~/org'."
-  :repeat nil
-  (interactive)
-  (find-file (expand-file-name "org" "~")))
-  ;(find-file (e "evil-tk.jlau.el")))
-
-;;;###autoload
-(evil-define-command edit-custom-file ()
-  "Edit custom file."
-  :repeat nil
-  (interactive)
-  (find-file (custom-file)))
-
-;;;###autoload
-(mapc (lambda (ls) (eval `(evil-ex-define-cmd ,(car ls) ,(cdr ls))))
+(mapc (lambda (ls)
+        (eval
+         `(progn
+            (evil-define-command ,(cdar ls) ()
+              ,(cadr ls)
+              :repeat nil
+              (interactive)
+              ,(cddr ls)
+              )
+            (evil-ex-define-cmd
+             ,(caar ls) ',(cdar ls)
+             )
+            )
+         )
+        )
       '(
-        ("v"  . 'edit-init-el)
-        ("ve" . 'edit-custom-evil-stuff)
-        ("vo" . 'edit-home-org)
-        ("vc" . 'edit-custom-file)
+        (("v"  . edit-init-el) .
+         ("Switch to `init.el' for editing." . (v)))
+
+        (("ve" . edit-custom-evil-stuff) .
+         ("Switch to `evil-tk.jlau.el' for editing." . (find-file (e "evil-tk.jlau.el"))))
+
+        (("vo" . edit-home-org) .
+         ("Edit `~/org'." . (find-file (expand-file-name "org" "~"))))
+
+        (("vc" . edit-custom-file) .
+         ("Edit custom file." . (find-file (custom-file))))
         )
       )
 
