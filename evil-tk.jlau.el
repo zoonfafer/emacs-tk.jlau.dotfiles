@@ -105,7 +105,7 @@
 
 ;; Remap org-mode meta keys for convenience
 ;; Yeah... need to use backticks for evil's `evil-delay'...
-;;###autoload
+;;;###autoload
 (mapc (lambda (state)
           (eval `(evil-declare-key ',state org-mode-map
                    (kbd "C-t") 'org-todo
