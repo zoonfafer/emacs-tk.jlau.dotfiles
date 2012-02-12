@@ -45,15 +45,8 @@
 ;;;###autoload
 (define-key evil-window-map "q" 'delete-window)
 
-;; TODO: :b#?  ^6?
-;; @url http://www.emacswiki.org/emacs/SwitchingBuffers
-;;;###autoload
-(defun switch-to-previous-buffer ()
-  (interactive)
-  (switch-to-buffer (other-buffer (current-buffer) 1)))
-
-;;;###autoload
-(evil-ex-define-cmd "bb" 'switch-to-previous-buffer) ;; :bb
+;; TODO: ^6?
+;; only "\C-^" works, but not "\C-6"... :-(
 
 ;;;###autoload
 (define-key evil-normal-state-map "\C-^" 'switch-to-previous-buffer) ;; no \C-6 ... :(
