@@ -49,29 +49,28 @@
 ;; only "\C-^" works, but not "\C-6"... :-(
 
 ;;;###autoload
-(define-key evil-normal-state-map "\C-^" 'switch-to-previous-buffer) ;; no \C-6 ... :(
+(mapc (lambda (l)
+        (define-key evil-normal-state-map (car l) (cdr l)
+          )
+        )
+      `(
+        ("ZZ"   . ":x")  ;; bring back ZZ & ZQ
+        ("ZQ"   . ":q!")
+        ("Zq"   . ":qa!")
+        (,(kbd "C-a")   . evil-numbers/inc-at-pt) ;; evil numbers: bring back ^a & ^x
+        (,(kbd "C-S-x") . evil-numbers/dec-at-pt)
 
-;; bring back ZZ & ZQ
-;
-;;;###autoload
-(define-key evil-normal-state-map "ZZ" ":x")
-
-;;;###autoload
-(define-key evil-normal-state-map "ZQ" ":q!")
-
-;;;###autoload
-(define-key evil-normal-state-map "Zq" ":qa!")
+        ;; simulate command-T & stuff (using iswitchb & icicles...)
+        ;;(define-key evil-normal-state-map "\M-t" 'iswitchb-buffer)
+        (",.b"  . iswitchb-buffer) ;; TODO: define using <leader>?
+        (",.f"  . icicle-file)     ;; TODO: define using <leader>?
+        )
+      )
 
 ;; bring back i_CTRL-H
 ;; @url https://github.com/cofi/dotfiles/blob/master/emacs.d/cofi-evil.el
 ;;;###autoload
 (define-key evil-insert-state-map "\C-h" 'backward-delete-char)
-
-;; evil numbers: bring back ^a & ^x
-;;;###autoload
-(define-key evil-normal-state-map (kbd "C-a") 'evil-numbers/inc-at-pt)
-(define-key evil-normal-state-map (kbd "C-S-x") 'evil-numbers/dec-at-pt)
-
 
 ;; delete parts of snake_case or camelCase words.
 ;; TODO: refine it!
@@ -85,15 +84,6 @@
 ;    (backward-char)))
 ;
 ;(define-key evil-operator-state-map "il" 'evil-little-word)
-
-;; simulate command-T & stuff (using iswitchb & icicles...)
-;(define-key evil-normal-state-map "\M-t" 'iswitchb-buffer)
-;
-;;;###autoload
-(define-key evil-normal-state-map ",.b" 'iswitchb-buffer) ;; TODO: define using <leader>?
-
-;;;###autoload
-(define-key evil-normal-state-map ",.f" 'icicle-file) ;; TODO: define using <leader>?
 
 ;; TODO: jump to default org mode file!
 
