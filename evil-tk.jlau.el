@@ -14,8 +14,6 @@
   (interactive)
   ;(find-file (expand-file-name "init.el" "~/.emacs.d")))
   (v))
-;;;###autoload
-(evil-ex-define-cmd "v" 'edit-init-el) ;; :v
 
 ;;;###autoload
 (evil-define-command edit-custom-evil-stuff ()
@@ -24,8 +22,6 @@
   (interactive)
   ;(find-file (expand-file-name "evil-tk.jlau.el" "~/.emacs.d")))
   (find-file (e "evil-tk.jlau.el")))
-;;;###autoload
-(evil-ex-define-cmd "ve" 'edit-custom-evil-stuff) ;; :ve
 
 ;;;###autoload
 (evil-define-command edit-home-org ()
@@ -34,8 +30,6 @@
   (interactive)
   (find-file (expand-file-name "org" "~")))
   ;(find-file (e "evil-tk.jlau.el")))
-;;;###autoload
-(evil-ex-define-cmd "vo" 'edit-home-org) ;; :vo
 
 ;;;###autoload
 (evil-define-command edit-custom-file ()
@@ -43,9 +37,16 @@
   :repeat nil
   (interactive)
   (find-file (custom-file)))
-;;;###autoload
-(evil-ex-define-cmd "vc" 'edit-custom-file) ;; :vc
 
+;;;###autoload
+(mapc (lambda (ls) (eval `(evil-ex-define-cmd ,(car ls) ,(cdr ls))))
+      '(
+        ("v"  . 'edit-init-el)
+        ("ve" . 'edit-custom-evil-stuff)
+        ("vo" . 'edit-home-org)
+        ("vc" . 'edit-custom-file)
+        )
+      )
 
 ;; map :bs to switch to the scratch buffer
 ;;;###autoload
