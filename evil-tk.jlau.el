@@ -35,17 +35,11 @@
 
         (("vc" . edit-custom-file) .
          ("Edit custom file." . (find-file (custom-file))))
+
+        (("bs" . switch-to-scratch) .
+         ("Switch to the *scratch* buffer." . (switch-to-buffer "*scratch*")))
         )
       )
-
-;; map :bs to switch to the scratch buffer
-;;;###autoload
-(evil-define-command switch-to-scratch ()
-  "Switch to the *scratch* buffer."
-  :repeat nil
-  (interactive)
-  (switch-to-buffer "*scratch*"))
-(evil-ex-define-cmd "bs" 'switch-to-scratch) ;; :bs
 
 ;; bring back ^wq
 ;;;###autoload
