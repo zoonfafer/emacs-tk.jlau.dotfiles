@@ -85,8 +85,6 @@
 ;
 ;(define-key evil-operator-state-map "il" 'evil-little-word)
 
-;; TODO: jump to default org mode file!
-
 ;;
 ;; Org mode bindings
 ;; @url https://github.com/cofi/dotfiles/blob/master/emacs.d/cofi-evil.el
