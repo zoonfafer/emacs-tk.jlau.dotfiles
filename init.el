@@ -4,8 +4,13 @@
 
 ;; LOL expand dat fiel naem easly!!!
 (defun e (a &rest b)
-  "expand path names from the concatenation of `eroot', A & B..."
-  (expand-file-name (apply #'concat (cons a b)) eroot)
+  "Expand path names from the concatenation of `eroot', A & B..., joined by the file segment separator.  E.g., (e \"hello\" \"a\" \"b\")  -> \"/home/myname/.emacs.d/hello/a/b\""
+  (expand-file-name (funcall #'mapconcat 'identity (cons a b)"/") eroot)
+)
+
+(defun b (a &rest b)
+  "Expand path names from the concatenation of `eroot', `bundles' & A & B..., joined by the file segment separator.  E.g., (e \"hello\" \"a\" \"b\")  -> \"/home/myname/.emacs.d/bundles/hello/a/b\""
+  (apply #'e `("bundles" ,a . ,b)) ;; doesn't work?!
 )
 
 (global-hl-line-mode 1)
@@ -22,10 +27,12 @@
 ;; @url http://www.emacswiki.org/emacs/CustomizingBoth
 (setq custom-file
       (e
-       (if (featurep 'xemacs)
-           "x"
-         "")
-       "emacs-customized.el"))
+       (concat
+        (if (featurep 'xemacs)
+            "x"
+          "")
+        "emacs-customized.el")
+       ))
 (load custom-file t)
 
 ;; easily open and edit this file
