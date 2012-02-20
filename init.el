@@ -6,22 +6,22 @@
 (defun e (a &rest b)
   "Expand path names from the concatenation of `eroot', A & B..., joined by the file segment separator.  E.g., (e \"hello\" \"a\" \"b\")  -> \"/home/myname/.emacs.d/hello/a/b\""
   (expand-file-name (funcall #'mapconcat 'identity (cons a b)"/") eroot)
-)
+  )
 
 (defun b (a &rest b)
   "Expand path names from the concatenation of `eroot', `bundles' & A & B..., joined by the file segment separator.  E.g., (e \"hello\" \"a\" \"b\")  -> \"/home/myname/.emacs.d/bundles/hello/a/b\""
   (apply #'e `("bundles" ,a . ,b)) ;; doesn't work?!
-)
+  )
 
 (global-hl-line-mode 1)
 (global-linum-mode 1)
 (iswitchb-mode 1)
 ;; DO NOT WANT start-up screen (which I can't coerce into use Evil mode)
-;(setq initial-buffer-choice t) ;; now done in Customize
+;;(setq initial-buffer-choice t) ;; now done in Customize
 
 ;; evil settings: must be done before `require'-ing evil
-;(setq evil-shift-width 2) ;; customized
-;(setq evil-want-C-u-scroll t) ;; why is the default `nil'? ;; customized
+;;(setq evil-shift-width 2) ;; customized
+;;(setq evil-want-C-u-scroll t) ;; why is the default `nil'? ;; customized
 
 ;; customize plz rite 2 dis fiel isnted pl0x
 ;; @url http://www.emacswiki.org/emacs/CustomizingBoth
@@ -129,14 +129,14 @@
 
 ;; === org mode
 (cat-to-list 'auto-mode-alist
-	     '("\\.org\\'" . org-mode)
-	     '("/org\\'"  . org-mode)
-	     )
+             '("\\.org\\'" . org-mode)
+             '("/org\\'"  . org-mode)
+             )
 
 ;; === Haskell mode
 (cat-to-list 'auto-mode-alist
-	     '("\\.hs\\'" . haskell-mode)
-	     )
+             '("\\.hs\\'" . haskell-mode)
+             )
 
 ;; @URL: http://www.haskell.org/haskellwiki/Haskell_mode_for_Emacs
 ;;
@@ -147,7 +147,7 @@
 
 ;; === Mythryl mode
 
-;(require 'mythryl-mode)
+;;(require 'mythryl-mode)
 ;; for .pkg and .api files
 (cat-to-list 'auto-mode-alist
              '("\\.pkg\\'" . mythryl-mode)
@@ -161,13 +161,13 @@
              )
 
 ;; === Scala mode
-;(require 'scala-mode)
+;;(require 'scala-mode)
 
 ;; Umm..., why is this not done already???/
 (cat-to-list 'auto-mode-alist '("\\.scala\\'" . scala-mode))
 
 ;; Ensime -------------------------------
-;(require 'ensime)
+;;(require 'ensime)
 
 ;; This step causes the ensime-mode to be started whenever
 ;; scala-mode is started for a buffer. You may have to customize this step
