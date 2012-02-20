@@ -127,15 +127,13 @@
         )
       )
 
+;; Hmm... WHY DOES HASKELL-MODE NOT DO THIS FOR ME?!?!??!!
+(load (b "haskellmode-emacs/haskell-site-file") )
+
 ;; === org mode
 (cat-to-list 'auto-mode-alist
              '("\\.org\\'" . org-mode)
              '("/org\\'"  . org-mode)
-             )
-
-;; === Haskell mode
-(cat-to-list 'auto-mode-alist
-             '("\\.hs\\'" . haskell-mode)
              )
 
 ;; @URL: http://www.haskell.org/haskellwiki/Haskell_mode_for_Emacs
