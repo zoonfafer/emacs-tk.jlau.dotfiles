@@ -109,11 +109,11 @@
   "za" 'org-cycle
   "zA" 'org-shifttab
   "zm" 'hide-body
-  "zr" 'show-all
+  "zR" 'show-all
   "zo" 'show-subtree
   "zO" 'show-all
   "zc" 'hide-subtree
-  "zC" 'hide-all
+  "zC" 'hide-all ;; ?! hide-all is undefined?!
   )
 
 ;; Remap org-mode meta keys for convenience
