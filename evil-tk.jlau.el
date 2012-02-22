@@ -67,6 +67,19 @@
         )
       )
 
+;;;###autoload
+(mapc (lambda (l)
+        (define-key evil-visual-state-map (car l) (cdr l)
+          )
+        )
+      `(
+        ;; Want smooth visual mode (de-)indentation!
+        ;; where is vnoremap?!
+        (,(kbd "C-,") . "<gv")
+        (,(kbd "C-.") . ">gv")
+        )
+      )
+
 ;; bring back i_CTRL-H
 ;; @url https://github.com/cofi/dotfiles/blob/master/emacs.d/cofi-evil.el
 ;;;###autoload
