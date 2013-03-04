@@ -6,6 +6,16 @@
 (eval-when-compile (require 'cl))
 (eval-when-compile (require 'evil-numbers))
 
+;; i like comma
+(evil-leader/set-leader ",")
+
+;; set nerd commenter hotkeys
+;; @url https://github.com/redguardtoo/evil-nerd-commenter
+(evil-leader/set-key
+  "ci" 'evilnc-comment-or-uncomment-lines
+  "cc" 'evilnc-comment-or-uncomment-to-the-line
+  )
+
 ; custom ex commands, all DRY-ed up!
 ;;;###autoload
 (mapc (lambda (ls)

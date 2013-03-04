@@ -84,6 +84,7 @@
         evil
         evil-numbers
         evil-leader
+        evil-nerd-commenter
         surround
         ;;icicles
         flymake-jslint
